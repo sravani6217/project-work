@@ -1,0 +1,161 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SMART CLEAN AIR BUS STOP — Offline Simulation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>SMART CLEAN AIR BUS STOP</h1>
+        <div class="sub">
+          Offline interactive concept simulation · Arduino Uno · MQ-135 · I²C LCD
+        </div>
+      </div>
+      <span class="tag">● Runs offline in Chrome</span>
+    </header>
+
+    <div class="grid">
+      <section class="panel">
+        <h2>Miniature bus-stop concept</h2>
+
+        <div class="busstop" aria-label="Illustration of the smart clean air bus stop">
+          <div class="sun"></div>
+          <div class="solar"></div>
+          <div class="roof"></div>
+          <div class="post p1"></div>
+          <div class="post p2"></div>
+          <div class="back"></div>
+
+          <div class="sensor">MQ<br>135</div>
+
+          <div class="lcd" id="lcd">
+            <div id="lcd1">SMART CLEAN AIR</div>
+            <div id="lcd2">NORMAL - FAN OFF</div>
+          </div>
+
+          <div class="bench"></div>
+          <div class="leg l1"></div>
+          <div class="leg l2"></div>
+          <div class="filter" title="Demonstration filter"></div>
+          <div class="fan" id="fan">✣</div>
+          <div class="person"></div>
+          <div class="ground"></div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric">
+            <small>Simulated sensor output</small>
+            <strong id="raw">320 / 1023</strong>
+          </div>
+          <div class="metric">
+            <small>Fan control</small>
+            <strong id="fanText">OFF</strong>
+          </div>
+          <div class="metric">
+            <small>Status LED</small>
+            <strong id="ledText">GREEN</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Simulation controls</h2>
+
+        <p class="muted">
+          Move the slider to imitate a changing MQ-135 analog output.
+          This is a logic demonstration, not a real air-quality measurement.
+        </p>
+
+        <label for="sensorRange">
+          Sensor analog value:
+          <strong id="rangeLabel">320</strong>
+        </label>
+
+        <input
+          id="sensorRange"
+          type="range"
+          min="0"
+          max="1023"
+          value="320"
+        >
+
+        <div class="buttons">
+          <button id="normalBtn">Set normal (290)</button>
+          <button id="moderateBtn">Set moderateO(480)</button>
+          <button id="highBtn">Set high (700)</button>
+          <button id="toggleBtn">Toggle fan output</button>
+        </div>
+
+        <div class="note">
+          <strong>Threshold: 600</strong><br>
+          At 600 or above, the red LED and fan-control indicator turn on.
+          Below 480, the green LED is on.
+          Below 700, the yellow LED is on.
+        </div>
+
+        <h2 class="wiring-heading">Indicative wiring plan</h2>
+
+        <div class="wires">
+          <div class="wire">
+            <span class="pin">MQ-135 AO</span>
+            <span>Arduino A0 (in simulation, a slider replaces the sensor)</span>
+          </div>
+
+          <div class="wire">
+            <span class="pin">LCD SDA</span>
+            <span>Arduino A4 on Uno</span>
+          </div>
+
+          <div class="wire">
+            <span class="pin">LCD SCL</span>
+            <span>Arduino A5 on Uno</span>
+          </div>
+
+          <div class="wire">
+            <span class="pin">Green LED</span>
+            <span>D3 through a current-limiting resistor to GND</span>
+          </div>
+
+          <div class="wire">
+            <span class="pin">Red LED</span>
+            <span>D4 through a current-limiting resistor to GND</span>
+          </div>
+
+          <div class="wire">
+            <span class="pin">Fan driver</span>
+            <span>D8 → suitable base resistor → TIP120; use a separate fan supply and flyback diode</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="panel bottom-panel">
+      <h2>How the demo behaves</h2>
+
+      <div class="muted" id="explain">
+        The simulated sensor value is below the demonstration threshold.
+        Green status is on and the fan output is off.
+      </div>
+
+      <p class="muted bottom-note">
+        Solar panel, battery charging, actual MQ-135 sensing, fan airflow
+        and filter efficiency are not physically simulated on this webpage.
+        Use a charge controller matched to the exact battery chemistry
+        and voltage; never connect a solar panel directly to a rechargeable battery.
+      </p>
+    </section>
+
+    <footer>
+      SMART CLEAN AIR BUS STOP · Educational prototype ·
+      Open this HTML file in Chrome; no internet is required.
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

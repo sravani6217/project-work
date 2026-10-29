@@ -1,0 +1,401 @@
+
+:root {
+  --bg: #0b1220;
+  --panel: #121d30;
+  --panel2: #17253b;
+  --line: #2a3c57;
+  --text: #edf4ff;
+  --muted: #a8b8cf;
+  --green: #43d17d;
+  --red: #ff5f6d;
+  --yellow: #ffd166;
+  --cyan: #59d9ef;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: linear-gradient(140deg, #08111e, #10223a 60%, #102b2d);
+  color: var(--text);
+}
+
+main {
+  max-width: 1120px;
+  margin: auto;
+  padding: 24px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  letter-spacing: 0.02em;
+}
+
+.sub {
+  color: var(--muted);
+  margin-top: 7px;
+}
+
+.tag {
+  border: 1px solid #386b5a;
+  background: #15372f;
+  color: #baffd7;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 18px;
+}
+
+.panel {
+  background: rgba(18, 29, 48, 0.94);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 14px 40px #0003;
+}
+
+h2 {
+  font-size: 1.12rem;
+  margin: 0 0 14px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.busstop {
+  height: 270px;
+  position: relative;
+  background: linear-gradient(#b8d9dc 0 64%, #7b9d78 64% 100%);
+  border-radius: 13px;
+  overflow: hidden;
+  border: 1px solid #45637b;
+  margin-bottom: 16px;
+}
+
+.sun {
+  position: absolute;
+  right: 24px;
+  top: 17px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffe29a;
+  box-shadow: 0 0 26px #ffe29a88;
+}
+
+.roof {
+  position: absolute;
+  top: 54px;
+  left: 10%;
+  width: 70%;
+  height: 17px;
+  background: #182b43;
+  transform: skewX(-18deg);
+  border-radius: 4px;
+  box-shadow: 0 4px 0 #4a6680;
+}
+
+.solar {
+  position: absolute;
+  top: 27px;
+  left: 24%;
+  width: 42%;
+  height: 24px;
+  background: repeating-linear-gradient(
+    90deg,
+    #173d63 0 24px,
+    #4f89b5 25px 27px
+  );
+  border: 2px solid #d1e7f4;
+  transform: skewX(-18deg);
+}
+
+.post {
+  position: absolute;
+  top: 70px;
+  width: 9px;
+  height: 139px;
+  background: #293e55;
+}
+
+.p1 {
+  left: 15%;
+}
+
+.p2 {
+  left: 77%;
+}
+
+.back {
+  position: absolute;
+  left: 17%;
+  top: 72px;
+  width: 59%;
+  height: 120px;
+  background: #e7f3edaa;
+  border: 3px solid #324f65;
+}
+
+.bench {
+  position: absolute;
+  left: 28%;
+  bottom: 57px;
+  width: 34%;
+  height: 13px;
+  background: #8d563a;
+  border-radius: 3px;
+  box-shadow: 0 12px 0 #68402e;
+}
+
+.leg {
+  position: absolute;
+  bottom: 39px;
+  width: 6px;
+  height: 22px;
+  background: #39495a;
+}
+
+.l1 {
+  left: 32%;
+}
+
+.l2 {
+  left: 57%;
+}
+
+.lcd {
+  position: absolute;
+  right: 8%;
+  top: 90px;
+  background: #101c1b;
+  color: #70ff9b;
+  font: 12px monospace;
+  padding: 9px 7px;
+  border: 4px solid #4b5b63;
+  border-radius: 5px;
+  min-width: 114px;
+  box-shadow: inset 0 0 10px #000;
+}
+
+.sensor {
+  position: absolute;
+  left: 7%;
+  top: 103px;
+  background: #2c4050;
+  border: 2px solid #d2e5ed;
+  border-radius: 6px;
+  width: 38px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  color: #b9e8ff;
+  font-size: 10px;
+}
+
+.fan {
+  position: absolute;
+  right: 12%;
+  bottom: 66px;
+  width: 49px;
+  height: 49px;
+  border: 4px solid #e5f1f6;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #183347;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.fan:before {
+  content: "✣";
+  font-size: 36px;
+  color: #d8edf5;
+  line-height: 1;
+}
+
+.filter {
+  position: absolute;
+  left: 7%;
+  bottom: 31px;
+  width: 40px;
+  height: 25px;
+  border: 2px solid #f8f4d6;
+  background: repeating-linear-gradient(
+    45deg,
+    #e4d8a7 0 3px,
+    #fff6d8 3px 6px
+  );
+  border-radius: 3px;
+}
+
+.person {
+  position: absolute;
+  left: 47%;
+  bottom: 48px;
+  width: 14px;
+  height: 26px;
+  background: #335a81;
+  border-radius: 8px 8px 3px 3px;
+}
+
+.person:before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 1px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e3b38e;
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  height: 26px;
+  width: 100%;
+  background: #657b6e;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.metric {
+  padding: 12px;
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.metric small {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+
+.metric strong {
+  font-size: 1.2rem;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--cyan);
+  margin: 12px 0;
+}
+
+button {
+  border: 1px solid #3a5978;
+  background: #1c3653;
+  color: var(--text);
+  padding: 10px 13px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 650;
+}
+
+button:hover {
+  background: #254667;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.note {
+  border-left: 3px solid var(--yellow);
+  padding: 10px 12px;
+  background: #332e1f;
+  border-radius: 0 9px 9px 0;
+  color: #ffedb7;
+  font-size: 0.9rem;
+  margin-top: 14px;
+}
+
+.wiring-heading {
+  margin-top: 22px;
+}
+
+.wires {
+  display: grid;
+  gap: 8px;
+}
+
+.wire {
+  display: grid;
+  grid-template-columns: 95px 1fr;
+  gap: 10px;
+  align-items: start;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #101a2a;
+  font-size: 0.9rem;
+}
+
+.pin {
+  font-family: monospace;
+  color: var(--cyan);
+  font-weight: bold;
+}
+
+.bottom-panel {
+  margin-top: 18px;
+}
+
+.bottom-note {
+  margin-bottom: 0;
+}
+
+footer {
+  margin: 18px 0 2px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  main {
+    padding: 14px;
+  }
+
+  .busstop {
+    height: 250px;
+  }
+
+  .metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .metric:last-child {
+    grid-column: span 2;
+  }
+}
